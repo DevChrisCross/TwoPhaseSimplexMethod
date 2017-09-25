@@ -144,7 +144,7 @@ def twoPhaseMethod(inputMatrix):
             solutionSet[i] = matrix[i][-1]
         else:
             solutionSet[i] = 0
-    print(solutionSet)
+    return solutionSet
 
 matrix = [
     ['2', '6', '1', '1', '0'],

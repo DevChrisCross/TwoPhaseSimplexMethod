@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/popper-utils.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+
+{% if display_result == False %}
+
+<div class="container-fluid">
+    <div class="row header">
+      <div class="col">
+          <h1>Two Phase <span style="color: #9f4543; font-weight: 500;">Simplex Method</span></h1>
+      </div>
+        <!--<div class="col" style="display: flex; align-items: center; justify-content: center; margin-right: 50px;">-->
+            <!--<div style="height: 1px; background-color: whitesmoke; width: 100%;"></div>-->
+        <!--</div>-->
+    </div>
+    <div class="row content">
+      <div class="col-md-2">
+          <span>Number of Constraints</span>
+          <input type="number" value="2">
+
+      </div>
+        <div class="col-md-2">
+            <span>Number of Variables</span>
+            <input type="number" value="2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input type="number" value="0">
+        </div>
+
+    </div>
+</div>
+
+{% endif %}
+
+<script>
+
+</script>
+
+</body>
+</html>
