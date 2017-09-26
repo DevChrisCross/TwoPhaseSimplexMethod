@@ -1,58 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Two Phase Simplex Method</title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.min.css' %}">
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'  %}" rel="stylesheet">
 
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/popper-utils.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-</head>
-<body>
 
-{% if display_result == False %}
+    <!-- Custom CSS -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slideshow.css' %}" rel="stylesheet">
 
-<div class="container-fluid">
-    <div class="row header">
-      <div class="col">
-          <h1>Two Phase <span style="color: #9f4543; font-weight: 500;">Simplex Method</span></h1>
-      </div>
-        <!--<div class="col" style="display: flex; align-items: center; justify-content: center; margin-right: 50px;">-->
-            <!--<div style="height: 1px; background-color: whitesmoke; width: 100%;"></div>-->
-        <!--</div>-->
-    </div>
-    <div class="row content">
-      <div class="col-md-2">
-          <span>Number of Constraints</span>
-          <input type="number" value="2">
+    <!--JQuery-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+     <script src="{% static 'js/jquery/inputGen.js' %}"></script>
+     <script type="text/javascript">
+      $(document).ready(function() {
+        $("#constButton").on('click', "button",function(){
+          alert("hello");
+        });
+      });
+    </script>
 
-      </div>
-        <div class="col-md-2">
-            <span>Number of Variables</span>
-            <input type="number" value="2">
+  </head>
+
+  <body>
+    {% if display_result == False %}
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+          <i class="fa fa-times"></i>
+        </a>
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#top">2-Phase Simplex</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#top">Home</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#topic">About the Topic</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#workspace">Workspace</a>
+        </li>
+        <li>
+          <a class="js-scroll-trigger" href="#aboutus">About Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="top">
+      <div class="text-vertical-center" id="something">
+          <div id="outerdiv">
+            <div id="innerdiv" class="col-lg-12 col-md-6 sol-sm-4">
+
+              <h1>Two Phase Simplex Method</h1>
+              <h3 style="color: #000">Finding optimal solutions variable by variable</h3>
+              <br>
+              <a href="#workspace" class="btn btn-dark btn-lg js-scroll-trigger">Solve Your Problem <span class="fa fa-chevron-right fa-fw fa-1x"></span></a>
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <input type="number" value="0">
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container text-center">
+        <h2>Two Phased Simplex Method</h2>
+        <p class="lead">Finding optimal solutions variable by variable</p>
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <section id="topic" style="background: #999">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="{% static 'img/portfolio-1.jpg' %}" style="width:100%">
+          <div class="text">Caption Text</div>
         </div>
 
-    </div>
-</div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="{% static 'img/portfolio-2.jpg' %}" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
 
-{% endif %}
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="{% static 'img/portfolio-3.jpg' %}" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
 
-<script>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div><!-- slide container -->
+      <br>
 
-</script>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div><!-- Text-align center -->
+      <!-- /.container -->
+    </section>
 
-</body>
+    <!-- Callout -->
+    <aside class="callout">
+      <div class="text-vertical-center">
+        <h1>Two Phase Simplex Method</h1>
+      </div>
+    </aside>
+
+    <!-- Portfolio -->
+    <section id="workspace" class="workspace">
+      <div class="container" id="workspacewrapper">
+        <div class="row">
+          <div class="col-lg-12 mx-auto text-center">
+            <h2>Workspace</h2>
+            <hr class="small">
+            <div  id="innerworkspace" class="innerwspace">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="constLabel">Number of constraints: </span>
+                    <input type="text" class="form-control text-right" id="constraints" aria-describedby="constLabel" style="width: 20%;"><span>&nbsp;</span>
+                  </div> <!-- input-grp -->
+                </div> <!-- Column div for constraints -->
+                <div class="col-md-3">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="varLabel">Number of variables: </span>
+                    <input type="text" class="form-control text-right" id="variables" aria-describedby="varLabel" style="width: 20%;"><span>&nbsp;</span>
+                  </div> <!-- input-grp -->
+                </div><!-- Column div for variables -->
+                <div class="col-lg-6">
+                  <input type="button" id="constBtn" class="btn btn-outline-secondary btn-md float-left" value="Generate">
+                </div>
+              </div> <!-- row -->
+            </div> <!-- innerwspace -->
+          </div>
+       </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- Call to Action -->
+    <aside class="call-to-action text-white">
+      <div class="container text-center" id="solution">
+        <h3>Solution</h3>
+        <button class="btn accordion">Show</button>
+          <div class="panel">
+            <p>Nothing to display </p>
+          </div>
+      </div>
+    </aside>
+
+    
+    <!-- Footer -->
+    <footer>
+      <div class="container" id="aboutus">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center">
+            <h4>
+              <strong>Two-Phase Simplex Method</strong>
+            </h4>
+            <br>
+            <div>
+              <p class="small">This static website is created by students from Group 2 of the subject <br><i>Modelling and Simulation</i> of <a href="www.tup.edu.ph" style="color: #e60000">Technological University of the Philippines</a></p>
+            </div>
+            <div class="small">
+              <hr class="small">
+                Group 2
+              <hr class="small">
+              <ul id="members" class="list-inline">
+                 <li class="list-inline-item">
+                  <strong>Leader:</strong> Christian Molina
+                </li>
+                <br>  
+                  <strong>Members: <br/></strong>
+                </li>
+                <li class="list-inline-item">
+                  Robert Ablaza &nbsp;<span class="fa fa-circle fa-adjust circle"></span></li>
+                
+                <li class="list-inline-item">
+                 Francis Caguiat</li>
+                <br>
+                <li class="list-inline-item">
+                Loren De Leon &nbsp;<span class="fa fa-circle fa-adjust circle"></span></li>
+                
+                
+                <li class="list-inline-item">
+                Rossel Galvez</li>
+                <br>
+                <li class="list-inline-item">
+                Cee Jay Reyes &nbsp;<span class="fa fa-circle fa-adjust circle"></span></li>
+                
+                <li class="list-inline-item">
+                Emmanuel Vergara</li>
+              </ul>
+            </div>
+            <hr class="small">
+            <p class="text-muted">Copyright &copy;  2017</p>
+          </div>
+        </div>
+      </div>
+      <a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
+        <i class="fa fa-chevron-up fa-fw fa-1x"></i>
+      </a>
+    </footer>
+    {% endif %}
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/styles.js' %}"></script>
+    <script src="{% static 'js/slideshow.js' %}"></script>
+   
+
+  </body>
+
 </html>
