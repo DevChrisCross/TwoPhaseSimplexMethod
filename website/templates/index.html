@@ -66,29 +66,31 @@
     <!-- Header -->
     <header class="header" id="top">
       <div class="text-vertical-center" id="something">
-          <div id="outerdiv">
-            <div id="innerdiv" class="col-lg-12 col-md-6 sol-sm-4">
-
-              <h1>Two Phase Simplex Method</h1>
-              <h3 style="color: #000">Finding optimal solutions variable by variable</h3>
-              <br>
-              <a href="#workspace" class="btn btn-dark btn-lg js-scroll-trigger">Solve Your Problem <span class="fa fa-chevron-right fa-fw fa-1x"></span></a>
-          </div>
+        <div id="innerdiv" class="col-lg-12 col-md-6 sol-sm-4">
+          <h1 style="font-size: 4rem;">Two-Phase Simplex Method</h1>
+          <hr style="border-top: 3px solid rgba(189, 29, 29, 0.75); width: 50%;">
+          <h3 style="font-size: 1.5rem;">Finding optimal solutions variable by variable</h3>
+          <br>
+          <a href="#workspace" class="btn btn-dark btn-lg js-scroll-trigger">Solve Your Problem <span class="fa fa-chevron-right fa-fw fa-1x"></span></a>
         </div>
       </div>
     </header>
 
     <!-- About -->
     <section id="about" class="about">
-      <div class="container text-center">
-        <h2>Two Phased Simplex Method</h2>
-        <p class="lead">Finding optimal solutions variable by variable</p>
+      <div class="container text-justify">
+        <!--<h2>Two Phased Simplex Method</h2>-->
+        <p>The Two-Phase Method is based on the following simple observation:
+          Suppose that you have a linear programming problem in canonical form and you wish to generate a feasible solution
+          (not necessarily optimal) such that a given variable, say x<sub>3</sub>, is equal to zero.
+          Then, all you have to do is solve the linear programming problem obtained from the original problem by replacing
+          the original objective function by x<sub>3</sub> and setting opt = min.</p>
       </div>
       <!-- /.container -->
     </section>
 
     <!-- Services -->
-    <section id="topic" style="background: #999">
+    <section id="topic" style="background: #343a40; padding-bottom: 20px;">
       <div class="slideshow-container">
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
@@ -122,37 +124,40 @@
     </section>
 
     <!-- Callout -->
-    <aside class="callout">
-      <div class="text-vertical-center">
-        <h1>Two Phase Simplex Method</h1>
-      </div>
-    </aside>
+    <!--<aside class="callout">-->
+      <!--<div class="text-vertical-center">-->
+        <!--<h1>Two Phase Simplex Method</h1>-->
+      <!--</div>-->
+    <!--</aside>-->
+
 
     <!-- Portfolio -->
     <section id="workspace" class="workspace">
       <div class="container" id="workspacewrapper">
         <div class="row">
-          <div class="col-lg-12 mx-auto text-center">
+          <div class="col-lg-11 mx-auto text-center">
             <h2>Workspace</h2>
             <hr class="small">
             <div  id="innerworkspace" class="innerwspace">
               <div class="row">
-                <div class="col-md-3">
-                  <div class="input-group">
+                <div class="col-md" style="display: flex; justify-content: space-between; padding: 0 210px;">
+                  <span class="input-group">
                     <span class="input-group-addon" id="constLabel">Number of constraints: </span>
-                    <input type="text" class="form-control text-right" id="constraints" aria-describedby="constLabel" style="width: 20%;"><span>&nbsp;</span>
-                  </div> <!-- input-grp -->
-                </div> <!-- Column div for constraints -->
-                <div class="col-md-3">
-                  <div class="input-group">
+                    <input type="number" class="form-control text-right" id="constraints" aria-describedby="constLabel" style="width: 60px; justify-content: center;" value="2" min="2" max="10"><span>&nbsp;</span>
+                  </span> <!-- input-grp -->
+                  <span class="input-group">
                     <span class="input-group-addon" id="varLabel">Number of variables: </span>
-                    <input type="text" class="form-control text-right" id="variables" aria-describedby="varLabel" style="width: 20%;"><span>&nbsp;</span>
-                  </div> <!-- input-grp -->
-                </div><!-- Column div for variables -->
-                <div class="col-lg-6">
-                  <button id="constBtn" class="btn btn-outline-secondary btn-md float-left">Generate</button>
+                    <input type="number" class="form-control text-right" id="variables" aria-describedby="varLabel" style="width: 60px; justify-content: center;" value="2" min="2" max="10"><span>&nbsp;</span>
+                  </span> <!-- input-grp -->
+                  <button id="constBtn" class="btn btn-outline-secondary btn-md float-left" style="padding: 10px 20px; cursor: pointer;">Generate</button>
                 </div>
               </div> <!-- row -->
+              <div class="row" style="justify-content: center; margin: 40px 0;" id="matrix-form"></div>
+              <div class="row">
+                <div class="col-md" style="justify-content: center; display: flex;">
+                  <button id="computeBtn" class="btn btn-outline-secondary btn-md float-left" style="padding:10px 100px; cursor: pointer;">Compute</button>
+                </div>
+              </div>
             </div> <!-- innerwspace -->
           </div>
        </div>
@@ -234,10 +239,6 @@
   <script src="{% static 'js/slideshow.js' %}"></script>
 
   <script type="text/javascript">
-    alert("Nothong")
-    $("#constBtn").click(function(){
-      console.log("norman")
-    })
 
   </script>
 </html>

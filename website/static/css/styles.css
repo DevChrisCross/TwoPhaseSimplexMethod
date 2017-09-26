@@ -28,27 +28,22 @@ body {
     vertical-align: middle;
 }
 
-.text-vertical-center h1 {
-    font-size: 3.5em;
-    font-weight: 800;
-   
-}
-
 
 /* Custom Button Styles */
 
 .btn-dark {
     color: #fff;
     border: none;
-    border-radius: 0;
-    background-color: rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    /*background-color: rgba(0, 0, 0, .75);*/
+    /*background-color: rgba(0, 0, 0, .4);*/
 }
 
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active {
-    color: #fff;
-    background-color: rgba(0, 0, 0, .7);
+    /*color: #3f3f3f;*/
+    /*background-color: rgba(225, 225, 225, .75);*/
 }
 
 .btn-light {
@@ -167,7 +162,7 @@ hr.small {
     position: relative;
     display: table;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     background: url(../img/bg1.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -180,7 +175,12 @@ hr.small {
 /* About */
 
 .about {
-    padding: 50px 0;
+    padding: 20px 0;
+    padding-top: 30px;
+    text-indent: 50px;
+    font-size: 15px;
+    background-color: #343a40;
+    color: #e4e4e4;
 }
 
 
@@ -213,9 +213,8 @@ hr.small {
 /* Portfolio */
 
 .workspace {
-    padding: 30px;
-    height: 100%;
-    
+    margin: 30px;
+    /*height: 100%;*/
 }
 
 .workspace-item {
@@ -235,7 +234,7 @@ hr.small {
 }
 .innerwspace{
     width: 100%;
-    height: 550px;
+    /*height: 550px;*/
     padding: 15px;
     box-sizing: border-box;
     border: 1px groove #333;
@@ -288,26 +287,29 @@ footer {
     padding: 20px 50px;
 }
 #innerdiv{
+    color: #484848;
     margin: auto;
-    width: 70%;
-    height: 80%;
-    line-height: 300px
+    /*width: 70%;*/
+    height: 650px;
+    line-height: 100px;
     text-align: center;
     background-repeat: no-repeat;
+    background: rgba(255, 255, 255, .7);
     box-sizing: border-box;
-    text-align: center;
     align-items: center;
-    padding: 130px 0px 60px;
-    filter: blur(5px);
+    padding: 130px 0 60px;
+    /*filter: blur(5px);*/
     overflow: hidden;
+    transition: 1s ease all;
 }
 #innerdiv:hover{
-    color: #222;
-    background: rgba(255, 255, 255, .1);
+    color: whitesmoke;
+    background: rgba(0, 0, 0, .7);
+    /*background: rgba(255, 255, 255, .1);*/
     /*border: 3px solid white;*/
     filter: blur(0px);
-    transition: 1s;
-    cursor: pointer;
+    transition: 1s ease all;
+    /*cursor: pointer;*/
 }
 
 #members
@@ -359,6 +361,21 @@ button.accordion:after {
 
 button.accordion.active:after {
     content: '\025B2'; /* Unicode character for "down" sign (v) */
+}
+
+.matrix-element{
+    margin: 5px;
+    width: 56px;
+    /* width: 8%; */
+    padding: 5px;
+    text-align: center;
+    padding-left: 20px;
+}
+
+.left-label{
+    display: inline-block;
+    margin-right: 5px;
+    width: 140px;
 }
 
 .circle{
