@@ -6,6 +6,10 @@
 
 
 /* Global Styles */
+@font-face{
+    font-family: 'Source Sans Pro';
+    url("SourceSansPro-Regular.ttf")
+}
 
 html,
 body {

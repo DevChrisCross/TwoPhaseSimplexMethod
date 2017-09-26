@@ -16,8 +16,7 @@
 
     <!-- Custom Fonts -->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
+    <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">-->
 
     <!-- Custom CSS -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
@@ -25,14 +24,13 @@
 
     <!--JQuery-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-     <script src="{% static 'js/jquery/inputGen.js' %}"></script>
-     <script type="text/javascript">
-      $(document).ready(function() {
-        $("#constButton").on('click', "button",function(){
-          alert("hello");
-        });
-      });
-    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
   </head>
 
@@ -152,7 +150,7 @@
                   </div> <!-- input-grp -->
                 </div><!-- Column div for variables -->
                 <div class="col-lg-6">
-                  <input type="button" id="constBtn" class="btn btn-outline-secondary btn-md float-left" value="Generate">
+                  <button id="constBtn" class="btn btn-outline-secondary btn-md float-left">Generate</button>
                 </div>
               </div> <!-- row -->
             </div> <!-- innerwspace -->
@@ -173,7 +171,6 @@
           </div>
       </div>
     </aside>
-
     
     <!-- Footer -->
     <footer>
@@ -228,18 +225,19 @@
       </a>
     </footer>
     {% endif %}
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="{% static 'js/styles.js' %}"></script>
-    <script src="{% static 'js/slideshow.js' %}"></script>
-   
 
   </body>
 
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/inputGen.js' %}"></script>
+  <script src="{% static 'js/styles.js' %}"></script>
+  <script src="{% static 'js/slideshow.js' %}"></script>
+
+  <script type="text/javascript">
+    alert("Nothong")
+    $("#constBtn").click(function(){
+      console.log("norman")
+    })
+
+  </script>
 </html>
