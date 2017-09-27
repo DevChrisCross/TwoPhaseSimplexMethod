@@ -35,7 +35,6 @@
   </head>
 
   <body>
-    {% if display_result == False %}
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
       <i class="fa fa-bars"></i>
@@ -154,7 +153,7 @@
               </div> <!-- row -->
               <div class="row" style="justify-content: center; margin: 40px 0;" id="matrix-form"></div>
               <div class="row">
-                <div class="col-md" style="justify-content: center; display: flex;">
+                <div class="col-md" style="justify-content: center; display: flex;"> {% csrf_token %}
                   <button id="computeBtn" class="btn btn-outline-secondary btn-md float-left" style="padding:10px 100px; cursor: pointer;">Compute</button>
                 </div>
               </div>
@@ -229,7 +228,6 @@
         <i class="fa fa-chevron-up fa-fw fa-1x"></i>
       </a>
     </footer>
-    {% endif %}
 
   </body>
 

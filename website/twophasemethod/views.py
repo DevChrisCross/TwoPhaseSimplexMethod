@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpRequest, QueryDict
 from pprint import pprint
 from fractions import *
 
@@ -139,25 +139,37 @@ def twoPhaseMethod(inputMatrix):
             print(matrix[i])
         print('\n')
 
+    formatMatrix = []
+    solutionValue = objectiveFunc[-1] * -1
+    solutionValue = str(solutionValue.numerator) + ("" if solutionValue.denominator == 1 else "/" + str(solutionValue.denominator))
     for i in range(len(matrix)):
-        print(matrix[i])
+        row = []
+        for j in range(len(matrix[i])):
+            denominatorStr = "" if matrix[i][j].denominator == 1 else ('/' + str(matrix[i][j].denominator))
+            row.append(str(matrix[i][j].numerator) + denominatorStr)
+        formatMatrix.append(row)
+
     print(numOfVars, solutionSet)
+    finalSolutionSet = ["0" for i in range(numOfVars)]
     for i in range(len(solutionSet)):
         if solutionSet[i] < numOfVars:
-            solutionSet[i] = matrix[i][-1]
-        else:
-            solutionSet[i] = 0
-    return solutionSet
+            finalSolutionSet[solutionSet[i]] = formatMatrix[i][-1]
+
+    return {"solutionValue": solutionValue, "solutionSet": finalSolutionSet, "matrix": formatMatrix}
 
 def index(request):
     template = "index.html"
-    context = {
-        "display_result": False
-    }
-
-    return render(request, template, context)
+    return render(request, template)
 
 def compute_solution(request):
-     template = ""
-     context = {}
-     return render(request, template, context)
+
+    inputMatrix = request.GET["matrix"]
+    inputMatrix = eval(inputMatrix)
+    # inputMatrix = [
+    #     ['-2', '3', '2', '-1', '5', '0'],
+    #     ['1', '0', '-1', '2', '-2', '1'],
+    #     ['-1', '-1', '2', '-1', '1', '4'],
+    #     ['0', '-1', '1', '1', '-1', '5']
+    # ]
+    outputMatrix = twoPhaseMethod(inputMatrix)
+    return JsonResponse({"outputMatrix": outputMatrix})
