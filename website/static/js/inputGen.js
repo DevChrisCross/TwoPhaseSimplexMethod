@@ -4,6 +4,8 @@
     var variables = $("#variables");
     var constraints = $("#constraints");
     var matrixForm = $("#matrix-form");
+    var resultPanel = $("#result-panel");
+    var matrixOutputData;
 
     generateButton.click(function(){
         var num_variables = parseInt(variables.val());
@@ -72,6 +74,29 @@
             success: function (response) {
                 alert(response);
                 console.log(response);
+//                matrixOutputData = response;
+                response = response["outputMatrix"];
+                var matrix = response["matrix"];
+                var solutionSet = response["solutionSet"];
+                var solutionValue = response["solutionValue"];
+                var resultHtmlContent = "";
+
+                for (var i = 0; i < matrix.length; i++){
+                    resultHtmlContent += '<div class="row"><div class="col-md">';
+                    for (var j = 0; j < matrix[i].length; j++){
+                        resultHtmlContent += '<span style="display: inline-block; margin: 5px;">' + matrix[i][j] +'</span>'
+                    }
+                    resultHtmlContent += '</div></div>';
+                }
+                resultHtmlContent += '<div class="row"><div class="col-md">[';
+                for (var i = 0; i < solutionSet.length; i++){
+                    resultHtmlContent += '<span style="display: inline-block; margin: 5px;">' + solutionSet[i] + '</span>';
+                }
+                resultHtmlContent += '] = ' + solutionValue + '</div></div>';
+
+
+
+                resultPanel.html(resultHtmlContent);
             }
         });
     });

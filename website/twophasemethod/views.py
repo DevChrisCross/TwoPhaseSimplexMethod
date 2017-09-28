@@ -162,14 +162,13 @@ def index(request):
     return render(request, template)
 
 def compute_solution(request):
-
     inputMatrix = request.GET["matrix"]
     inputMatrix = eval(inputMatrix)
-    # inputMatrix = [
-    #     ['-2', '3', '2', '-1', '5', '0'],
-    #     ['1', '0', '-1', '2', '-2', '1'],
-    #     ['-1', '-1', '2', '-1', '1', '4'],
-    #     ['0', '-1', '1', '1', '-1', '5']
-    # ]
+    inputMatrix = [
+        ['-2', '3', '2', '-1', '5', '0'],
+        ['1', '0', '-1', '2', '-2', '1'],
+        ['-1', '-1', '2', '-1', '1', '4'],
+        ['0', '-1', '1', '1', '-1', '5']
+    ]
     outputMatrix = twoPhaseMethod(inputMatrix)
     return JsonResponse({"outputMatrix": outputMatrix})
