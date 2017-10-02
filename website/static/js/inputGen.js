@@ -72,7 +72,7 @@
                 csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val()
             },
             success: function (response) {
-                alert(response);
+                // alert(response);
                 console.log(response);
 //                matrixOutputData = response;
                 response = response["outputMatrix"];
