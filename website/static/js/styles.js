@@ -105,5 +105,5 @@ for (i = 0; i < acc.length; i++) {
 $("#computeBtn").click(function() {
     $('html, body').animate({
         scrollTop: $("#solCont").offset().top
-    }, 2000);
+    }, 1000);
 });
