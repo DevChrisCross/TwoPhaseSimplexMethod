@@ -23,10 +23,10 @@
         num_constraints += 1;
         var html_content = "";
         html_content += '<div class="row" style="justify-content: center; width: 100%;">';
-        html_content += '<div class="col-md" style="margin-left: 14%;">';
-        html_content += '<span style="display: inline-block; width: 85px; margin: 5px; "><i>Constant <strong>C</strong></i></span>';
+        html_content += '<div class="col-md" style="margin-left: 13%;">';
+        html_content += '<span style="display: inline-block; margin: 5px; width: 85px; padding: 5px;"><i><strong>C</strong></i></span>';
         for (var i = 0; i < num_variables - 1; i++){
-            html_content += '<span style="display: inline-block; width: 56px; margin: 5px;">x<sub>' + (i+1) + '</sub></span>'
+            html_content += '<span style="display: inline-block; margin: 5px; width: 65px; padding: 5px;">x<sub>' + (i+1) + '</sub></span>'
         }
         html_content += '</div></div>';
 
@@ -69,7 +69,7 @@
             url: "/process/",
             data: {
                 matrix: JSON.stringify(matrix),
-                csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val()
+                // csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val()
             },
             success: function (response) {
                 // alert(response);
@@ -82,27 +82,52 @@
                 var resultHtmlContent = "";
 
                 for (var i = 0; i < matrix.length; i++){
-                    resultHtmlContent += '<div class="row"><div class="col-md">';
-                    for (var j = 0; j < matrix[i].length; j++){
-                        resultHtmlContent += '<span style="display: inline-block; margin: 5px;">' + matrix[i][j] +'</span>'
+                    if (i == 0){
+                        resultHtmlContent += '<div class="row"><div class="col-md" style="margin-left: 65px;">';
+                        for (var k = 0; k < num_variables - 1; k++){
+                            resultHtmlContent += '<span class="matrix-header-label">x<sub>' + (k+1) + '</sub></span>'
+                        }
+                        // resultHtmlContent += '<span style="display: inline-block; width: 56px; margin: 5px;">x<sub>' + matrix.length + '</sub></span>'
+                        for (var k = 0; k < (matrix[i].length - num_variables); k++){
+                            resultHtmlContent += '<span class="matrix-header-label">y<sub>' + (k+1) + '</sub></span>'
+                        }
+                        resultHtmlContent += '<span class="matrix-header-label">C</span>';
+                        resultHtmlContent += '</div></div>';
                     }
-                    resultHtmlContent += '</div></div>';
+
+                    if(i < matrix.length - 2) {
+                        resultHtmlContent += '<div class="row"><div class="col-md">';
+                        resultHtmlContent += '<span class="matrix-header-label">c<sub>' + (i+1) + '</sub></span>'
+                        for (var j = 0; j < matrix[i].length; j++) {
+                            resultHtmlContent += '<span class="matrix-element-output">' + matrix[i][j] + '</span>'
+                        }
+                        resultHtmlContent += '</div></div>';
+                    }
+                    else{
+                        marginClass = '';
+                        if (i == matrix.length - 2) { marginClass += 'style="margin-top: 20px;"'}
+                        resultHtmlContent += '<div class="row"' + marginClass + '><div class="col-md">';
+                        resultHtmlContent += '<span class="matrix-header-label">f<sub>' + (i - matrix.length + 2) + '</sub></span>'
+                        for (var j = 0; j < matrix[i].length; j++) {
+                            resultHtmlContent += '<span class="matrix-element-output">' + matrix[i][j] + '</span>'
+                        }
+                        resultHtmlContent += '</div></div>';
+                    }
                 }
-                resultHtmlContent += '<div class="row"><div class="col-md">[';
+                resultHtmlContent += '<div class="row">' +
+                    '<div class="col-md" style="width: 100%; margin-left: 60px;">' +
+                    '<span class="matrix-answer-format">x<sup>*</sup> = [';
                 for (var i = 0; i < solutionSet.length; i++){
-                    resultHtmlContent += '<span style="display: inline-block; margin: 5px;">' + solutionSet[i] + '</span>';
+                    resultHtmlContent += '<span style="display: inline-block; margin: 5px;">x<sub>' + i + '</sub><span class="matrix-element-output">' + solutionSet[i] + '</span>,</span>';
                 }
-                resultHtmlContent += '] = ' + solutionValue + '</div></div>';
-
-
-
+                resultHtmlContent += ']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(x<sup>*</sup>) = <span class="matrix-element-output">' + solutionValue + '</span></span></div></div>';
                 resultPanel.html(resultHtmlContent);
             }
         });
     });
 
     generateButton.trigger("click");
-    computeButton.trigger("click");
+    // computeButton.trigger("click");
 })();
 
 

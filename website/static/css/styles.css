@@ -244,7 +244,7 @@ hr.small {
 
 .call-to-action {
     padding: 50px 0;
-    background: #ccc;
+    background: #565656;
 }
 
 .call-to-action .btn {
@@ -340,16 +340,16 @@ button.accordion.active, button.accordion:hover {
 
 /* Style the accordion panel. Note: hidden by default */
 div.panel {
-    padding: 0 18px;
-    width: 70%;
-    margin: auto;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    max-height: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    color: black;
-    transition: max-height 0.2s ease-out;
+    /*padding: 0 18px;*/
+    /*width: 70%;*/
+    /*margin: auto;*/
+    /*background-color: #f2f2f2;*/
+    /*border-radius: 10px;*/
+    /*max-height: 0;*/
+    /*overflow: hidden;*/
+    /*box-sizing: border-box;*/
+    /*color: black;*/
+    /*transition: max-height 0.2s ease-out;*/
 }
 button.accordion:after {
     content: '\025BC'; /* Unicode character for "up" sign (^) */
@@ -365,11 +365,42 @@ button.accordion.active:after {
 
 .matrix-element{
     margin: 5px;
-    width: 56px;
+    width: 65px;
     /* width: 8%; */
     padding: 5px;
-    text-align: center;
-    padding-left: 20px;
+    background-color: #fbfbfb;
+    border: 1px solid #949494;
+    color: #565656;
+}
+
+.matrix-element-output{
+    display: inline-block;
+    margin: 3px;
+    /* width: 80px; */
+    border: 1px solid #d0d0d0;
+    background-color: #404040;
+    padding: 5px 10px;
+    color: #efefef;
+    min-width: 60px;
+}
+
+.matrix-header-label{
+    display: inline-block;
+    /* width: 56px; */
+    padding: 5px 10px;
+    min-width: 60px;
+    margin: 5px 3px;
+}
+
+.matrix-answer-format{
+    background-color: #696969;
+    padding: 15px;
+    margin: 10px 0;
+    display: inline-block;
+    min-width: 80%;
+    color: #fbfbfb;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
 }
 
 .left-label{

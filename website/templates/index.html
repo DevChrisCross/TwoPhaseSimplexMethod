@@ -167,26 +167,27 @@
     <section id="workspace" class="workspace">
       <div class="container" id="workspacewrapper">
         <div class="row">
-          <div class="col-lg-11 mx-auto text-center">
+          <div class="col-lg-12 mx-auto text-center">
             <h2>Workspace</h2>
             <hr class="small">
             <div  id="innerworkspace" class="innerwspace">
               <div class="row">
                 <div class="col-md" style="display: flex; justify-content: space-between; padding: 0 210px;">
-                  <span class="input-group">
+                  <span class="input-group" style="width: 0;">
                     <span class="input-group-addon" id="constLabel">Number of constraints: </span>
                     <input type="number" class="form-control text-right" id="constraints" aria-describedby="constLabel" style="width: 60px; justify-content: center;" value="2" min="2" max="10"><span>&nbsp;</span>
                   </span> <!-- input-grp -->
-                  <span class="input-group">
+                  <span class="input-group" style="width: 0;">
                     <span class="input-group-addon" id="varLabel">Number of variables: </span>
                     <input type="number" class="form-control text-right" id="variables" aria-describedby="varLabel" style="width: 60px; justify-content: center;" value="2" min="2" max="10"><span>&nbsp;</span>
                   </span> <!-- input-grp -->
-                  <button id="constBtn" class="btn btn-outline-secondary btn-md float-left" style="padding: 10px 20px; cursor: pointer;">Generate</button>
+                  <button id="constBtn" class="btn btn-outline-secondary btn-md float-left" style="padding: 10px 50px; cursor: pointer;">Generate</button>
                 </div>
               </div> <!-- row -->
               <div class="row" style="justify-content: center; margin: 40px 0;" id="matrix-form"></div>
               <div class="row">
-                <div class="col-md" style="justify-content: center; display: flex;"> {% csrf_token %}
+                <div class="col-md" style="justify-content: center; display: flex;">
+                  <!--{% csrf_token %}-->
                   <button id="computeBtn" class="btn btn-outline-secondary btn-md float-left" style="padding:10px 100px; cursor: pointer;">Compute</button>
                 </div>
               </div>
@@ -202,12 +203,15 @@
     <aside class="call-to-action text-white">
       <div class="container text-center" id="solution">
         <h3>Solution</h3>
-        <button class="btn accordion">Show</button>
-          <div class="panel" id="result-panel">
+          <hr class="small" style="background-color: whitesmoke;">
+        <!--<button class="btn accordion">Show</button>-->
+        <div class="panel" id="result-panel">
             <p>Nothing to display</p>
-          </div>
+        </div>
       </div>
     </aside>
+
+
     
     <!-- Footer -->
     <footer>
@@ -219,7 +223,7 @@
             </h4>
             <br>
             <div>
-              <p class="small">This static website is created by students from Group 2 of the subject <br><i>Modelling and Simulation</i> of <a href="www.tup.edu.ph" style="color: #e60000">Technological University of the Philippines</a></p>
+              <p class="small">This static website is created by students from Group 2 of the subject <br><i>Modelling and Simulation</i> of <a href="https://www.tup.edu.ph" style="color: #e60000">Technological University of the Philippines</a></p>
             </div>
             <div class="small">
               <hr class="small">
