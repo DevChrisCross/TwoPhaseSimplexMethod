@@ -102,5 +102,8 @@ for (i = 0; i < acc.length; i++) {
   }
 } 
 
-
-// Generating Constraints and Objectives
+$("#computeBtn").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#solCont").offset().top
+    }, 2000);
+});
