@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpRequest, QueryDict
 from pprint import pprint
 from fractions import *
+from decimal import *
 
 # Create your views here.
 def twoPhaseMethod(inputMatrix):
@@ -74,7 +75,7 @@ def twoPhaseMethod(inputMatrix):
     # prepare the matrix with artificial variables
     objectiveFuncArt = ['0' for i in range(len(objectiveFunc))]
     objectiveFunc.extend(['0' for i in range(numOfArtificial)])
-    objectiveFunc.extend(constants[0])
+    objectiveFunc.append(constants[0])
     objectiveFuncArt.extend(['1' for i in range(numOfArtificial)])
     objectiveFuncArt.extend('0')
 
@@ -92,6 +93,7 @@ def twoPhaseMethod(inputMatrix):
     matrix.append(objectiveFuncArt)
     solutionSet = [-1 for i in range(numOfVars)]
 
+    print(matrix)
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             matrix[i][j] = Fraction(matrix[i][j])
